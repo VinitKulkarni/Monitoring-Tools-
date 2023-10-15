@@ -1,0 +1,31 @@
+ 1  sudo apt update
+    2  cd /opt
+    3  sudo wget https://github.com/prometheus/prometheus/releases/download/v2.32.0/prometheus-2.32.0.linux-amd64.tar.gz
+    4  sudo tar xf prometheus-2.32.0.linux-amd64.tar.gz
+    5  cd prometheus-2.32.0.linux-amd64/
+    6  sudo nano prometheus.yml
+    7  sudo ./prometheus
+    8  sudo useradd --no-create-home --shell /bin/false prometheus
+    9  sudo mkdir /etc/prometheus
+   10  sudo mkdir /var/lib/prometheus
+   11  sudo chown prometheus:prometheus /etc/prometheus
+   12  sudo chown prometheus:prometheus /var/lib/prometheus
+   13  sudo cp prometheus /usr/local/bin/
+   14  sudo cp promtool /usr/local/bin/
+   15  sudo chown prometheus:prometheus /usr/local/bin/prometheus
+   16  sudo chown prometheus:prometheus /usr/local/bin/promtool
+   17  sudo cp -r /opt/prometheus-2.32.0.linux-amd64/consoles /etc/prometheus
+   18  sudo cp -r /opt/prometheus-2.32.0.linux-amd64/console_libraries /etc/prometheus
+   19  sudo cp -r /opt/prometheus-2.32.0.linux-amd64/prometheus.yml /etc/prometheus
+   20  sudo chown -R prometheus:prometheus /etc/prometheus/consoles
+   21  sudo chown -R prometheus:prometheus /etc/prometheus/console_libraries
+   22  sudo chown -R prometheus:prometheus /etc/prometheus/prometheus.yml
+   23  prometheus --version
+   24  promtool --version
+   25  sudo -u prometheus /usr/local/bin/prometheus --config.file /etc/prometheus/prometheus.yml --storage.tsdb.path /var/lib/prometheus/ --web.console.templates=/etc/prometheus/consoles --web.console.libraries=/etc/prometheus/console_libraries
+   26  sudo nano /etc/systemd/system/prometheus.service
+   27  sudo systemctl daemon-reload
+   28  sudo systemctl start prometheus
+   29  sudo systemctl enable prometheus
+   30  sudo systemctl status prometheus
+   31  history
