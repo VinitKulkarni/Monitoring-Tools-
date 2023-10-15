@@ -1,0 +1,28 @@
+1  sudo apt update
+    2  sudo apt install nagios-nrpe-server monitoring-plugins
+    3  cd /etc/nagios
+    4  vim nrpe.cfg
+    5  sudo su
+    6  exit
+    7  history
+    8  netstat tulpn
+    9  netstat -tulpn
+   10  sudo apt install net-tools
+   11  netstat -tulpn
+   12  ps -elf | grep nginx
+   13  cd /etc/nagios/nrpe.d/
+   14  ls
+   15  ls
+   16  ls -lrt
+   17  pwd
+   18  ps -elf | grep nrpe
+   19  cd ..
+   20  vim nrpe.cfg
+   21  sudo apt install nginx
+   22  systemctl status nginx
+   23  netstat -tulpn
+   24  exit
+   25  cd /etc/nagios
+   26  ls -l
+   27  vi nrpe.cfg
+   28  history

@@ -1,0 +1,89 @@
+1  cd ~/
+    2  pwd
+    3  wget https://github.com/NagiosEnterprises/nagioscore/archive/nagios-4.4.6.tar.gz
+    4  tar -xf nagios-4.4.6.tar.gz
+    5  ls -l
+    6  cd nagioscore-*/
+    7  ls -l
+    8  cd ..
+    9  ls -l
+   10  cd nagioscore-*/
+   11  sudo ./configure --with-httpd-conf=/etc/apache2/sites-enabled
+   12  sudo make all
+   13  sudo make install-groups-users
+   14  sudo usermod -a -G nagios www-data
+   15  cat /etc/passwd
+   16  sudo make install
+   17  sudo make install-daemoninit
+   18  sudo make install-commandmode
+   19  sudo make install-config
+   20  sudo make install-webconf
+   21  sudo a2enmod rewrite cgi
+   22  systemctl restart apache2
+   23  sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+   24  for svc in Apache ssh; do ufw allow $svc; done
+   25  ufw enable
+   26  ufw status numbered
+   27  sudo apt install monitoring-plugins nagios-nrpe-plugin
+   28  mkdir -p /usr/local/nagios/etc/servers
+   29  pwd
+   30  ls -l
+   31  vim nagios.cfg
+   32  pwd
+   33  mkdir -p /usr/local/nagios/etc/servers
+   34  ls -l
+   35  cd /usr/local/nagios/etc
+   36  mkdir -p /usr/local/nagios/etc/servers
+   37  ls -l
+   38  vim nagios.cfg
+   39  vim resource.cfg
+   40  vim objects/contacts.cfg
+   41  vim objects/commands.cfg
+   42  systemctl start nagios
+   43  systemctl enable nagios
+   44  systemctl status nagios
+   45  systemctl status apache2
+   46  /usr/lib/nagios/plugins/check_nrpe -H 172.31.4.222
+   47  /usr/lib/nagios/plugins/check_nrpe -H 172.31.4.222 -c check_ping
+   48  cd /usr/local/nagios/etc
+   49  vim servers/client01.cfg
+   50  systemctl restart nagios
+   51  systemctl status  nagios
+   52  /usr/lib/nagios/plugins/check_nrpe -H 172.31.4.222 -c check_ping
+   53  top
+   54  netstat tulpn
+   55  apt install net-tools
+   56  netstat tulpn
+   57  clear
+   58  /usr/lib/nagios/plugins/check_nrpe -H 172.31.4.222 -c check_ping
+   59  ls -l
+   60  cd servers/
+   61  ls -l
+   62  vim client01.cfg
+   63  /usr/lib/nagios/plugins/check_nrpe -H 172.31.4.222 -c check_ping
+   64  exit
+   65  /usr/lib/nagios/plugins/check_nrpe -H 172.31.4.222 -c check_ping
+   66  curl http://localhost
+   67  curl http://localhost:80
+   68  clear
+   69  exit
+   70  cd usr/local/nagios/etc/
+   71  cd usr/local/nagios/etc
+   72  cd /usr/local/nagios/etc
+   73  ls -l
+   74  cd servers/
+   75  ls -l
+   76  vi client01.cfg
+   77  cd ..
+   78  ls -l
+   79  cd objects/
+   80  ls -l
+   81  vim commands.cfg
+   82  cd servers/
+   83  cd /servers
+   84  ls
+   85  cd ..
+   86  ls -l
+   87  cd servers/
+   88  ls -l
+   89  history
